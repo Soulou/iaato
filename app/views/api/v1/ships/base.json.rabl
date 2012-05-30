@@ -1,4 +1,4 @@
-attributes :id, :name, :travelers, :capacity, :position
+attributes :id, :name, :position
 child operator: :operator do
   extends 'api/v1/operators/base'
 end
