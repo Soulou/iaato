@@ -25,7 +25,7 @@ describe 'API', type: :request do
 
     context 'get one' do
       before do
-        @ship = create :ship, name: 'concordia', capacity: 200
+        @ship = create :ship, name: 'concordia'
         get "/api/ships/#{@ship.id}"
       end
 
@@ -33,11 +33,10 @@ describe 'API', type: :request do
       it { should be_ok }
       it_should_be_a_ship
       its_name_should_be "concordia"
-      its_capacity_should_be 200
     end
 
     context 'create' do
-      before { post "/api/ships", name: 'concordia', capacity: 200}
+      before { post "/api/ships", name: 'concordia'}
 
       subject { last_response }
 

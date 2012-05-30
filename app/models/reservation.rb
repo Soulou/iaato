@@ -39,6 +39,6 @@ class Reservation
   has_one :location
 
   validates_with ReservationUniquenessValidator 
-  validates_with LocationCapacityTravelersValidator
+  validates_with ShipPresenceValidator
 end
 
