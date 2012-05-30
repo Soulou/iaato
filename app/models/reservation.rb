@@ -8,12 +8,12 @@ class ReservationUniquenessValidator < ActiveModel::Validator
   end
 end
 
-class LocationCapacityTravelersValidator < ActiveModel::Validator
+class ShipPresenceValidator < ActiveModel::Validator
   def validate(record)
     if(record.ship_id == nil or record.location_id == nil)
       record.errors[:base] << "The ship or the location does not exist"
-    elsif(Ship.find(record.ship_id).travelers > Location.find(record.location_id).capacity)
-      record.errors[:base] << "Too many travalers on that boat"
+    elsif(Record.where(ship_id: record.ship_id, location_id: record.location_id))
+      record.errors[:base] << "There is already a boat at this place"
     end
   end
 end
