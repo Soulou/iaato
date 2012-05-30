@@ -2,8 +2,6 @@ class Ship
   include Mongoid::Document
 
   field :name
-  field :travelers, type: Integer, default: 0
-  field :capacity, type: Integer
   field :position, type: Array
   field :email, type: String
   field :phone, type: String
@@ -14,5 +12,5 @@ class Ship
 
   validates :name, uniqueness: true, presence: true
 
-  attr_accessible :name, :travelers, :capacity, :position, :email, :phone
+  attr_accessible :name, :position, :email, :phone
 end
